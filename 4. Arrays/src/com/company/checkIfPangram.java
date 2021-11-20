@@ -11,10 +11,11 @@ public class checkIfPangram {
             for(int j = 0; j < sentence.length(); j++) {
                if(i == sentence.charAt(j)) {
                    count++;
+                   break;
                }
             }
         }
-        if(count >= 26) {
+        if(count == 26) {
             return true;
         }
         else {

@@ -13,10 +13,9 @@ public class flipAndInvertImage {
             for(int j = 0; j < image[i].length; j++) {
                 revImage[i][j] = image[i][(image.length - 1) - j];
             }
-//            System.out.println((Arrays.toString(revImage[i])));
-//        } for (int i = 0; i < revImage.length; i++) {
-//            System.out.println(Arrays.toString(revImage[i]));
-        } for (int i = 0; i < revImage.length; i++) {
+        }
+
+        for (int i = 0; i < revImage.length; i++) {
             for (int j = 0; j < revImage[i].length; j++) {
                 if(revImage[i][j] == 1) {
                     revImage[i][j] = 0;
@@ -24,9 +23,11 @@ public class flipAndInvertImage {
                     revImage[i][j] = 1;
                 }
             }
-        } for (int i = 0; i < revImage.length; i++) {
+        }
+
+        for (int i = 0; i < revImage.length; i++) {
             System.out.println(Arrays.toString(revImage[i]));
         }
-        return image;
+        return revImage;
     }
 }
