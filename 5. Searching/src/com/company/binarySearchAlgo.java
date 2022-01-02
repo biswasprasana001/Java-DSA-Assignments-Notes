@@ -13,7 +13,7 @@ public class binarySearchAlgo {
         int e = arr.length - 1;
         while(s <= e) {
             int m = s + ((e-s)/2);
-            if (target > arr[m]) {
+            if (arr[m] < target) {
                 s = m + 1;
             }
             else if (target < arr[m]) {
