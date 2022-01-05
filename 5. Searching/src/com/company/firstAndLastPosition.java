@@ -4,34 +4,35 @@ import java.util.Arrays;
 
 public class firstAndLastPosition {
     public static void main(String[] args) {
-        int[] nums = {1, 2, 2, 2, 3, 4, 5};
-        int target = 2;
-        System.out.println(Arrays.toString(searchRng(nums, target)));
+        int[] arr = {1, 2, 3, 3, 3, 4, 5};
+        int target = 3;
+        int[] out = searchRng(arr, target);
+        System.out.println(Arrays.toString(out));
     }
-    static int[] searchRng(int[] nums, int target) {
-        int[] ans = {-1, -1};
-        ans[0] = search(nums, target, true);
-        if (ans[0] != -1) {
-            ans[1] = search(nums, target, false);
+    static int[] searchRng(int[] arr, int target) {
+        int[] out = {-1, -1};
+        out[0] = binarySearch(arr, target, "first");
+        if (out[0] != -1) {
+            out[1] = binarySearch(arr, target, "second");
         }
-        return ans;
+        return out;
     }
-    static int search (int[] nums, int target, boolean firstStartIndex) {
+    static int binarySearch(int[] arr, int target, String toDo) {
+        int start = 0;
+        int end = arr.length - 1;
         int ans = -1;
-        int s = 0;
-        int e = nums.length - 1;
-        while (s <= e) {
-            int m = s + ((e - s)/2);
-            if (nums[m] < target) {
-                e = m - 1;
-            } else if (target < nums[m]) {
-                s = m + 1;
+        while (start <= end) {
+            int mid = start - ((start - end)/2);
+            if (arr[mid] < target) {
+                start = mid + 1;
+            } else if (target < arr[mid]) {
+                end = mid - 1;
             } else {
-                ans = m;
-                if (firstStartIndex) {
-                    e = m - 1;
+                ans = mid;
+                if (toDo.equals("first")) {
+                    end = mid - 1;
                 } else {
-                    s = m + 1;
+                    start = mid + 1;
                 }
             }
         }
