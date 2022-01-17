@@ -19,6 +19,6 @@ public class nGS {
                 end = mid;
             }
         }
-        return end%(arr.length-1);
+        return start%(arr.length-1);
     }
 }

@@ -2,7 +2,7 @@ package com.company;
 
 public class findPivot {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3};
+        int[] arr = {3, 4, 2};
         int pivot = pivot(arr);
         System.out.println(pivot);
     }
@@ -15,7 +15,7 @@ public class findPivot {
                 return mid;
             } else if (start < end && arr[mid - 1] > arr[mid]) {
                 return mid - 1;
-            } else if (arr[start] < arr[mid]) {
+            } else if (arr[start] <= arr[mid]) {
                 start = mid + 1;
             } else {
                 end = mid - 1;
