@@ -29,16 +29,16 @@ public class splitArray {
         if (m == arr.length) {
             return max;
         }
-        int lo = max;
-        int hi = sum;
+        int start = max;
+        int end = sum;
         int ans = 0;
-        while (lo < hi) {
-            int mid = lo + (hi - lo) / 2;
+        while (start < end) {
+            int mid = start + (end - start) / 2;
             if (isPossible(arr, mid, m) == true) {
                 ans = mid;
-                hi = mid - 1;
+                end = mid;
             } else {
-                lo = mid + 1;
+                start = mid + 1;
             }
         }
         return ans;
